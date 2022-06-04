@@ -14,10 +14,10 @@ This app was written in Kotlin.
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
 * [Android Studio Official Website](https://developer.android.com/studio)
 * [Android Studio Documentation](https://developer.android.com/docs)
 
 # Future Work
 
 * Add functionality for other Pokemon games
+* Add functionality to return to previous screen and select different types
