@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Pokemon Type Randomizer</string>
+    <string name="random_types_button">Choose types for me</string>
+    <string name="choose_types_button">Let me choose types</string>
+    <string name="quit_button">Quit</string>
+    <string name="random_types_text">How many types would you like chosen for you?</string>
+    <string name="one_type_button">One Type</string>
+    <string name="two_types_button">Two Types</string>
+    <string name="chosen_types_text">Please input the type or types you would like to use.</string>
+    <string name="chosen_type1_text">First Type:</string>
+    <string name="chosen_type2_text">Second Type:</string>
+    <string name="randomize_button">Randomize!</string>
+    <string name="results_text">Results</string>
+    <string name="back_button">Back</string>
+    <string-array name="listview_header">
+        <item>Pokemon, Type1, Type2, Game</item>
+    </string-array>
+    <string-array name="type_array1">
+        <item>Random</item>
+        <item>Normal</item>
+        <item>Fighting</item>
+        <item>Flying</item>
+        <item>Poison</item>
+        <item>Ground</item>
+        <item>Rock</item>
+        <item>Bug</item>
+        <item>Ghost</item>
+        <item>Steel</item>
+        <item>Fire</item>
+        <item>Water</item>
+        <item>Grass</item>
+        <item>Electric</item>
+        <item>Psychic</item>
+        <item>Ice</item>
+        <item>Dragon</item>
+        <item>Dark</item>
+        <item>Fairy</item>
+    </string-array>
+    <string-array name="type_array2">
+        <item>None</item>
+        <item>Random</item>
+        <item>Normal</item>
+        <item>Fighting</item>
+        <item>Flying</item>
+        <item>Poison</item>
+        <item>Ground</item>
+        <item>Rock</item>
+        <item>Bug</item>
+        <item>Ghost</item>
+        <item>Steel</item>
+        <item>Fire</item>
+        <item>Water</item>
+        <item>Grass</item>
+        <item>Electric</item>
+        <item>Psychic</item>
+        <item>Ice</item>
+        <item>Dragon</item>
+        <item>Dark</item>
+        <item>Fairy</item>
+    </string-array>
+</resources>
