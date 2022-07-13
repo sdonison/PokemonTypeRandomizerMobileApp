@@ -3,8 +3,11 @@ package com.example.pokemontyperandomizer
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.telecom.Call
 import android.view.View
 import android.widget.*
+import me.sargunvohra.lib.pokekotlin.client.PokeApiClient
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     var backPressedTime: Long = 0
@@ -16,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     )
 
     private var allPokemon = mutableMapOf<String, Pokemon>()
-    fun populateAllPokemon() {
+    /*fun populateAllPokemon() {
         //This manually writes every Pokemon to the mutable map and associates each with a list created by the data class
         allPokemon["Serperior"] = Pokemon("Grass", "---", "BW")
         allPokemon["Emboar"] = Pokemon("Fire", "Fighting", "BW")
@@ -96,7 +99,7 @@ class MainActivity : AppCompatActivity() {
         allPokemon["Zekrom"] = Pokemon("Dragon", "Electric", "B")
         allPokemon["Landorus"] = Pokemon("Ground", "Flying","BW")
         allPokemon["Kyurem"] = Pokemon("Dragon", "Ice", "BW")
-    }
+    }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,28 +109,30 @@ class MainActivity : AppCompatActivity() {
         val randomizeButton = findViewById<Button>(R.id.randomize_button)
         val type1Spinner: Spinner = findViewById(R.id.type1_dropdown)
         val type2Spinner: Spinner = findViewById(R.id.type2_dropdown)
+        val pokedexSpinner: Spinner = findViewById(R.id.pokedex_dropdown)
         val pokemonTypes: List<String> = listOf("Normal", "Fighting", "Flying", "Poison", "Ground", "Rock", "Bug", "Ghost", "Steel", "Fire", "Water", "Grass", "Electric", "Psychic", "Ice", "Dragon", "Dark")
 
         randomizeButton.setOnClickListener {
             var choice1 = type1Spinner.selectedItem.toString()
             var choice2 = type2Spinner.selectedItem.toString()
+            var pokedexChoice = pokedexSpinner.selectedItem.toString()
             var type1: String
             var type2: String = "---"
             //If choice1 or choice2 are random, generate random types and make sure they don't match
+            val random = Random()
             if (choice1 == "Random") {
-                val random = (0..16).random()
+                val random = (0..16).shuffled().last()
                 type1 = pokemonTypes[random]
-                println(type1)
             }
             else {type1 = choice1}
             if (choice2 == "Random") {
                 var rollRandom: Boolean = true
                 while (rollRandom) {
-                    var random = (0..16).random()
+                    var random = (0..16).shuffled().last()
                     type2 = pokemonTypes[random]
                     println(type2)
                     if (type2 == type1) {
-                        random = (0..16).random()
+                        random = (0..16).shuffled().last()
                     }
                     else if (type2 != type1) {
                         type2 = pokemonTypes[random]
@@ -137,7 +142,7 @@ class MainActivity : AppCompatActivity() {
             }
             else {type2 = choice2}
             //After choices are selected, fetch Pokemon
-            if (allPokemon.isEmpty()) {
+            /*if (allPokemon.isEmpty()) {
                 populateAllPokemon()
             }
             val pokemonList: Map<String, Pokemon> = randomTypes(type1, type2)
@@ -149,7 +154,10 @@ class MainActivity : AppCompatActivity() {
             for (key in pokemonList.keys) {
                 val pokemon = "$key -> \n    Type 1: ${pokemonList[key]?.typeOne} Type 2: ${pokemonList[key]?.typeTwo} Game: ${pokemonList[key]?.game}"
                 listItems.add(pokemon)
-            }
+            }*/
+            val callApi = CallApi()
+            val allPokemon = callApi.populateFromApi(pokedexChoice)
+            val listItems = callApi.generateRandomList(type1, type2, allPokemon)
             setContentView(R.layout.activity_results)
             val listView: ListView = findViewById<ListView>(R.id.results_list)
             val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems)
@@ -167,7 +175,7 @@ class MainActivity : AppCompatActivity() {
         backPressedTime = System.currentTimeMillis()
     }
 
-    private fun randomTypes(type1: String, type2: String): Map<String, Pokemon> {
+    /*private fun randomTypes(type1: String, type2: String): Map<String, Pokemon> {
         var filteredMap: Map<String, Pokemon>
         filteredMap = if (type2 == "None") {
             allPokemon.filterValues { it.typeOne == type1 || it.typeTwo == type1}
@@ -175,7 +183,7 @@ class MainActivity : AppCompatActivity() {
             allPokemon.filterValues { (it.typeOne  == type1 || it.typeTwo == type1) || (it.typeOne == type2 || it.typeTwo == type2)}
         }
         return filteredMap
-    }
+    }*/
 }
 class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
 

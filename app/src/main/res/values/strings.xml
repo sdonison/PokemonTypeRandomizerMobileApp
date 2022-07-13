@@ -1,17 +1,14 @@
 <resources>
     <string name="app_name">Pokemon Type Randomizer</string>
-    <string name="random_types_button">Choose types for me</string>
-    <string name="choose_types_button">Let me choose types</string>
-    <string name="quit_button">Quit</string>
     <string name="random_types_text">How many types would you like chosen for you?</string>
     <string name="one_type_button">One Type</string>
     <string name="two_types_button">Two Types</string>
     <string name="chosen_types_text">Please input the type or types you would like to use.</string>
     <string name="chosen_type1_text">First Type:</string>
     <string name="chosen_type2_text">Second Type:</string>
+    <string name="chosen_pokedex_text">Pokedex:</string>
     <string name="randomize_button">Randomize!</string>
     <string name="results_text">Results</string>
-    <string name="back_button">Back</string>
     <string-array name="listview_header">
         <item>Pokemon, Type1, Type2, Game</item>
     </string-array>
@@ -57,5 +54,19 @@
         <item>Dragon</item>
         <item>Dark</item>
         <item>Fairy</item>
+    </string-array>
+    <string-array name="pokedex_array">
+        <item>Kanto</item>
+        <item>GSC Johto</item>
+        <item>HGSS Johto</item>
+        <item>RS Hoenn</item>
+        <item>E Hoenn</item>
+        <item>DP Sinnoh</item>
+        <item>P Sinnoh</item>
+        <item>BW Unova</item>
+        <item>B2W2 Unova</item>
+        <item>Kalos</item>
+        <item>SM Alola</item>
+        <item>USUM Alola</item>
     </string-array>
 </resources>
