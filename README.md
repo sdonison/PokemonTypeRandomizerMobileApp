@@ -7,6 +7,7 @@ Update: This app can now pull from PokeAPI and generate a list of Pokemon from t
 I've played through some Pokemon games with only one or two types in the past and my husband and I have even created Type Randomizers in other programming languages. This, however, is the first time I've created one with Kotlin and have been able to put it on my phone. Being able to add functionality for other Pokemon games will increase the versatility of this app and I can continue using it in the future.
 
 [Original Sofware Demo Video](https://www.youtube.com/watch?v=LB3EzUjN86w&ab_channel=HyruleGirl13)
+
 [API Update Video](https://youtu.be/w3IzA0qUeSI)
 
 # Development Environment
